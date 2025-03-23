@@ -5,15 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enhanced Countdown Timer</title>
+    <link rel="stylesheet" href="mystyle.css">
     <style>
         * {
-            font-size: 30px;
+            font-size: 20px;
             font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
         }
 
         body {
-            background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);
-            color: white;
+            background: radial-gradient(circle, #1e3c72, #2a5298);
+            color: #ffcc00;
             text-align: center;
             margin: 0;
             padding: 20px;
@@ -25,7 +27,8 @@
             padding: 15px;
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 20px;
+            flex-wrap: wrap;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
@@ -43,53 +46,92 @@
             background: rgba(255, 255, 255, 0.2);
         }
 
+        h1 {
+            text-shadow: 2px 2px 5px #ffcc00;
+            font-size: 2.5em;
+        }
+
+        /* Responsive Form */
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         input[type=number] {
             padding: 15px;
-            font-size: 30px;
-            border: 2px solid #00f7ff;
+            font-size: 20px;
+            border: 2px solid #ffcc00;
             background-color: black;
             color: white;
             border-radius: 10px;
             text-align: center;
+            width: 80%;
+            max-width: 300px;
         }
 
         input[type=submit],
         button {
             border: none;
-            background: linear-gradient(45deg, #ff0099, #493240);
-            color: white;
+            background: linear-gradient(45deg, #ff8800, #ffcc00);
+            color: black;
             padding: 15px 30px;
-            font-size: 30px;
+            font-size: 20px;
             cursor: pointer;
             border-radius: 10px;
             transition: 0.3s;
             margin-top: 10px;
+            width: 80%;
+            max-width: 300px;
         }
 
         input[type=submit]:hover,
         button:hover {
-            background: linear-gradient(45deg, #493240, #ff0099);
+            background: linear-gradient(45deg, #ffcc00, #ff8800);
         }
 
-        h1 {
-            text-shadow: 3px 3px 10px #00f7ff;
-        }
-
+        /* Countdown Watch */
         #watch {
-            width: 160px;
-            height: 160px;
-            border: 8px solid #00f7ff;
+            width: 150px;
+            height: 150px;
+            border: 8px solid #ffcc00;
             border-radius: 50%;
             margin: 20px auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 50px;
+            font-size: 40px;
             font-weight: bold;
-            box-shadow: 0 0 25px #00f7ff;
-            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 20px #ffcc00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .nav {
+                flex-direction: column;
+                text-align: center;
+                padding: 10px;
+            }
+
+            input[type=number], input[type=submit], button {
+                width: 90%;
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            #watch {
+                width: 120px;
+                height: 120px;
+                font-size: 30px;
+            }
         }
     </style>
+    <link rel="icon" href="timer.png">
 </head>
 
 <body>
@@ -102,7 +144,7 @@
     <h1>Enhanced Countdown Timer</h1>
     <form onsubmit="startCountdown(event)">
         <input type="number" id="time" placeholder="Enter time in seconds" min="1" required />
-        <br><br>
+        <br>
         <input type="submit" value="Start Timer">
     </form>
     <button onclick="increaseVolume()">🔊 Volume Up</button>
